@@ -21,7 +21,7 @@ const [data,setData]=useState([])
     
     
     setFindState(e)
-    // setcart(count++)
+   
     setapp(findItem.length+1)
     
   }

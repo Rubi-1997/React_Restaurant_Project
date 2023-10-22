@@ -7,7 +7,7 @@ import GradeIcon from '@mui/icons-material/Grade';
 
 
 
-const Cart = ({ findItem, detail, showdetail,counter,itemId,setapp}) => {
+const Cart = ({ findItem, detail, showdetail,counter,itemId,setapp,DeleteCartItem}) => {
 
 
   
@@ -30,14 +30,14 @@ console.log(findItem.length)
           findItem.map((ele, key) => {
             if (findItem) {
               return (
-                <div onClick={()=>showdetail(ele.id,ele.qty)}>
+                <div >
 
                   <div class="card flex-row" style={{
                     width: "37rem",
                     marginTop: "1rem",
                     marginLeft: "1rem"
                   }}>
-                    <div className='d-flex align-items-center justify-content-center'>
+                    <div className='d-flex align-items-center justify-content-center' onClick={()=>showdetail(ele.id,ele.qty)}>
                       <img src={ele.imgdata} style={{ width: "10rem", height: "8rem" }} class="card-img-top" alt="..." />
                     </div>
 
@@ -58,7 +58,7 @@ console.log(findItem.length)
                         <table className=''>
                           <tr >
                             <td className='d-flex flex-row'><b>Rating :</b><p class="card-text ml-2">{ele.rating}<GradeIcon></GradeIcon></p></td>
-                            <td className='d-flex flex-row'><b>Delete<DeleteIcon style={{ color: "red" }}></DeleteIcon></b><p class="card-text ml-2"></p></td>
+                            <td className='d-flex flex-row'><b>Delete<DeleteIcon style={{ color: "red" }} onClick={()=>DeleteCartItem(ele.id)}></DeleteIcon></b><p class="card-text ml-2"></p></td>
                             
 
                           </tr>

@@ -102,6 +102,12 @@ function App() {
 
   }
 
+  const DeleteCartItem=(id)=>{
+    setFindItem(findItem.filter((ele)=>ele.id!==id))
+    setdetail(detail.filter((ele)=>ele.id!==id))
+    console.log("delete item",id)
+    setapp(findItem.length-1)
+  }
 
   return (
     <div className="App">
@@ -119,11 +125,11 @@ function App() {
         <Route path="/login" element={<Login />}>
 
         </Route>
-        <Route path="/Detail" element={<Detail detail={detail} findItem={findItem} counter={counter} handleClick1={handleClick1} handleClick2={handleClick2} itemId={itemId} />}>
+        <Route path="/Detail" element={<Detail detail={detail} findItem={findItem} counter={counter} DeleteCartItem={DeleteCartItem} handleClick1={handleClick1} handleClick2={handleClick2} itemId={itemId} />}>
 
         </Route>
 
-        <Route path="/Cart" element={<Cart findState={findState} setapp={setapp} counter={counter} findItem={findItem} detail={detail} showdetail={showdetail} itemId={itemId} />}>
+        <Route path="/Cart" element={<Cart findState={findState} setapp={setapp} counter={counter} findItem={findItem} detail={detail} showdetail={showdetail} itemId={itemId} DeleteCartItem={DeleteCartItem}/>}>
 
         </Route>
 

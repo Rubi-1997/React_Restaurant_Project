@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 
 
 
-const Detail = ({ detail,counter,handleClick1,handleClick2,itemId ,findItem}) => {
+const Detail = ({ detail,counter,handleClick1,handleClick2,itemId ,findItem,DeleteCartItem}) => {
   
    
 
@@ -75,7 +75,7 @@ const handledetailOrder=()=>{
                                         <table className=''>
                                             <tr >
                                                 <td className='d-flex flex-row p-4'><b>Rating :</b><p class="card-text ml-2">{ele.rating}<GradeIcon></GradeIcon></p></td>
-                                                {/* <td className='d-flex flex-row p-4'><b>Delete<DeleteIcon style={{ color: "red" }}></DeleteIcon></b><p class="card-text ml-2"></p></td> */}
+                                                <td className='d-flex flex-row p-4'><b>Delete<DeleteIcon style={{ color: "red" }} onClick={()=>DeleteCartItem(ele.id)}></DeleteIcon></b><p class="card-text ml-2"></p></td>
 
 
                                             </tr>
