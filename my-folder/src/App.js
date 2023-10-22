@@ -22,58 +22,115 @@ function App() {
 
 
   const [stateapp, setapp] = useState()
-  const [findItem, setFindItem] = useState([])
+  let [findItem, setFindItem] = useState([])
   const [findState, setFindState] = useState([])
   const [content, setContent] = useState([])
   const [detail, setdetail] = useState([]);
-  const [number, setNumber] = useState()
+  const [counter, setCounter] = useState(1)
+  const [itemId, setItemId] = useState(0)
+  const [data, setData] = useState([])
+
+  const navigate = useNavigate()
 
 
 
 
-  const handleOrder = (id) => {
+  // const handleOrder = (id) => {
 
-    // console.log("order now", id)
+  //   // console.log("order now", id)
+
+  //   setdetail(findItem.filter((ele) => ele.id === id))
+
+
+
+  // }
+
+
+
+
+  const showdetail = (id) => {
 
     setdetail(findItem.filter((ele) => ele.id === id))
+    // setFindItem(findItem.filter((ele) => ele.id === id))
+
+
+    navigate("/detail")
+
+
+  }
+  const handleClick1 = (id) => {
+    let currentItem = [...findItem]
+
+    let updateItem = currentItem.map((ele) => {
+
+      if (ele.id === id) {
+        return { ...ele, qnty: ele.qnty - 1 }
+      }
+      else {
+        return ele
+      }
+
+    });
+    currentItem = updateItem
+    console.log(currentItem)
+    setdetail(currentItem.filter((ele) => ele.id === id))
+    setFindItem(currentItem)
+
+
+  }
+
+
+  const handleClick2 = (id) => {
+    let currentItem = [...findItem]
+
+    let updateItem = currentItem.map((ele) => {
+
+      if (ele.id === id) {
+        return { ...ele, qnty: ele.qnty + 1 }
+      }
+      else {
+        return ele
+      }
+
+    });
+    currentItem = updateItem
+    console.log(currentItem)
+    setdetail(currentItem.filter((ele) => ele.id === id))
+    setFindItem(currentItem)
 
 
 
   }
 
 
-  console.log(detail)
-
-
-
-
-
   return (
     <div className="App">
 
-      <BrowserRouter>
-        <Nav stateapp={stateapp} />
-        <Routes>
-          <Route path="/" element={<Home />}>
+      <Nav stateapp={stateapp} />
+      <Routes>
 
-          </Route>
-          <Route path="/Restaurant" element={<Restaurant setapp={setapp} setFindState={setFindState} setFindItem={setFindItem} findItem={findItem} />}>
+        <Route path="/" element={<Home />}>
 
-          </Route>
+        </Route>
+        <Route path="/Restaurant" element={<Restaurant setapp={setapp} setFindState={setFindState} setFindItem={setFindItem} findItem={findItem} />}>
 
-          <Route path="/login" element={<Login />}>
+        </Route>
 
-          </Route>
-          <Route path="/Detail" element={<Detail detail={detail} setNumber={setNumber} />}>
+        <Route path="/login" element={<Login />}>
 
-          </Route>
+        </Route>
+        <Route path="/Detail" element={<Detail detail={detail} findItem={findItem} counter={counter} handleClick1={handleClick1} handleClick2={handleClick2} itemId={itemId} />}>
 
-          <Route path="/Cart" element={<Cart findState={findState} findItem={findItem} handleOrder={handleOrder} detail={detail} number={number} />}>
+        </Route>
 
-          </Route>
-        </Routes>
+        <Route path="/Cart" element={<Cart findState={findState} setapp={setapp} counter={counter} findItem={findItem} detail={detail} showdetail={showdetail} itemId={itemId} />}>
 
-      </BrowserRouter>
+        </Route>
+
+      </Routes>
+
+
+
     </div>
   );
 }

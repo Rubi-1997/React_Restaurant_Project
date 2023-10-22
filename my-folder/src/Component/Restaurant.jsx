@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Cardsdata from '../CardsData'
+import { NavLink, Navigate } from 'react-router-dom'
 
 
 let count = 1
@@ -12,7 +13,7 @@ const [data,setData]=useState([])
 
 
 
-  const [cart, setcart] = useState()
+  // const [cart, setcart] = useState()
   const handleCart = (e) => {
     console.log(e)
     console.log(Cardsdata)
@@ -20,10 +21,11 @@ const [data,setData]=useState([])
     
     
     setFindState(e)
-    setcart(count++)
+    // setcart(count++)
+    setapp(findItem.length+1)
     
   }
-  setapp(cart)
+
  
 // console.log(data)
 useEffect(()=>{
@@ -63,7 +65,7 @@ useEffect(()=>{
                 </div>
 
                 <div className='d-flex align-items-center justify-content-center'>
-                  <button className='btn btn-secondary' onClick={() => handleCart(ele.id)}>Add to cart</button>
+                <button className='btn btn-secondary' onClick={() => handleCart(ele.id)} >Add to cart</button> 
 
                 </div>
               </div>

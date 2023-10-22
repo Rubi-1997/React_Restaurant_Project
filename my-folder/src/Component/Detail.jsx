@@ -1,29 +1,34 @@
 import React, { useState } from 'react'
 import DeleteIcon from '@mui/icons-material/Delete';
 import GradeIcon from '@mui/icons-material/Grade';
-import Cardsdata from '../CardsData';
+
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 
 
 
-const Detail = ({ detail, setNumber }) => {
-    const [qty, setQty] = useState(0)
+const Detail = ({ detail,counter,handleClick1,handleClick2,itemId ,findItem}) => {
+  
+   
 
 
 
     console.log(detail)
 
-
-    useEffect(() => {
-        localStorage.setItem('items', JSON.stringify(qty));
-        setNumber(qty)
-    }, [qty])
+    
 
 const handledetailOrder=()=>{
     alert("ordered")
+    // setNumber(qty)
 }
+
+
+
+
+
+
+
 
 
 
@@ -54,13 +59,15 @@ const handledetailOrder=()=>{
                                             <tr className='p-4'>
                                                 <td className='d-flex flex-row p-4'><b>Recipe name:</b><p class="card-text ml-2">{ele.rname}</p></td>
                                                 <td className='d-flex flex-row p-4'><b>Dishes :</b><p class="card-text ml-2">{ele.address}</p></td>
-                                                <td className='d-flex flex-row p-4'><b>Price :</b><p class="card-text ml-2">{ele.price}</p></td>
+                                                <td className='d-flex flex-row p-4'><b>Price :</b><p class="card-text ml-2">{ele.price}₹</p></td>
 
                                                 <td className='d-flex flex-row p-4'><b>Qty: </b><p class="card-text ml-2"></p><div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                    <button type="button" class="btn btn-light" onClick={() => setQty(qty - 1)}>-</button>
-                                                    <button type="button" class="btn btn-light">{qty}</button>
-                                                    <button type="button" class="btn btn-light" onClick={() => setQty(qty + 1)}>+</button>
+                                                    <button type="button" class="btn btn-light" onClick={()=>handleClick1(ele.id)}>-</button>
+                                                    <button type="button" class="btn btn-light">{ele.qnty}</button>
+                                                    <button type="button" class="btn btn-light" onClick={()=>handleClick2(ele.id)}>+</button>
                                                 </div></td>
+                                                <td className='d-flex flex-row p-4' ><b>Total :</b><p class="card-text text-danger ml-2">{ele.price*ele.qnty}₹</p></td>
+
 
 
                                             </tr>

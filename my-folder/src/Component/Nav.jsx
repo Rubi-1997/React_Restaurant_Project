@@ -37,7 +37,7 @@ const Nav = ({ stateapp }) => {
                                 <Link to="/login" class="nav-link active" aria-current="page">Login</Link>
 
                             </li>
-                            <Link to="/detail" class="nav-link active" aria-current="page">Detail</Link>
+                           
 
                         </ul>
 
