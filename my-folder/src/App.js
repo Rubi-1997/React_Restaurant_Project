@@ -13,6 +13,8 @@ import Cardsdata from './CardsData';
 import { useEffect, useState } from 'react';
 import Detail from './Component/Detail';
 import { useNavigate } from 'react-router-dom';
+import PrivateComponent from './Component/PrivateComponent';
+import Logout from './Component/Logout';
 
 
 
@@ -102,11 +104,11 @@ function App() {
 
   }
 
-  const DeleteCartItem=(id)=>{
-    setFindItem(findItem.filter((ele)=>ele.id!==id))
-    setdetail(detail.filter((ele)=>ele.id!==id))
-    console.log("delete item",id)
-    setapp(findItem.length-1)
+  const DeleteCartItem = (id) => {
+    setFindItem(findItem.filter((ele) => ele.id !== id))
+    setdetail(detail.filter((ele) => ele.id !== id))
+    console.log("delete item", id)
+    setapp(findItem.length - 1)
   }
 
   return (
@@ -114,24 +116,19 @@ function App() {
 
       <Nav stateapp={stateapp} />
       <Routes>
+      <Route path="/" element={<Home />}></Route>
+        <Route element={<PrivateComponent />}>
+         
+          <Route path="/Restaurant" element={<Restaurant setapp={setapp} setFindState={setFindState} setFindItem={setFindItem} findItem={findItem} />}></Route>
+          <Route path="/Detail" element={<Detail detail={detail} findItem={findItem} counter={counter} DeleteCartItem={DeleteCartItem} handleClick1={handleClick1} handleClick2={handleClick2} itemId={itemId} />}></Route>
 
-        <Route path="/" element={<Home />}>
-
+          <Route path="/Cart" element={<Cart findState={findState} setapp={setapp} counter={counter} findItem={findItem} detail={detail} showdetail={showdetail} itemId={itemId} DeleteCartItem={DeleteCartItem} />}></Route>
         </Route>
-        <Route path="/Restaurant" element={<Restaurant setapp={setapp} setFindState={setFindState} setFindItem={setFindItem} findItem={findItem} />}>
-
-        </Route>
-
-        <Route path="/login" element={<Login />}>
-
-        </Route>
-        <Route path="/Detail" element={<Detail detail={detail} findItem={findItem} counter={counter} DeleteCartItem={DeleteCartItem} handleClick1={handleClick1} handleClick2={handleClick2} itemId={itemId} />}>
-
-        </Route>
-
-        <Route path="/Cart" element={<Cart findState={findState} setapp={setapp} counter={counter} findItem={findItem} detail={detail} showdetail={showdetail} itemId={itemId} DeleteCartItem={DeleteCartItem}/>}>
-
-        </Route>
+{
+  localStorage.getItem('data')?<Route path="/logout" element={<Logout/>}></Route>: <Route path="/login" element={<Login />}></Route>
+}
+       
+        
 
       </Routes>
 

@@ -41,11 +41,12 @@ const handledetailOrder=()=>{
                     detail.map((ele) => {
                         return <div>
 
-                            <div class="card flex-row" style={{
-                                width: "70rem",
+                            <div class="card flex-row p-4 cartItem" style={{
+                                width: "75rem",
                                 marginTop: "1rem",
                                 marginLeft: "1rem",
                                 height: "25rem"
+
                             }}>
                                 <div className='d-flex align-items-center justify-content-center'>
                                     <img src={ele.imgdata} style={{ width: "30rem", height: "20rem" }} class="card-img-top" alt="..." />
@@ -56,17 +57,17 @@ const handledetailOrder=()=>{
 
                                     <div className='d-flex justify-content-between'>
                                         <table>
-                                            <tr className='p-4'>
-                                                <td className='d-flex flex-row p-4'><b>Recipe name:</b><p class="card-text ml-2">{ele.rname}</p></td>
-                                                <td className='d-flex flex-row p-4'><b>Dishes :</b><p class="card-text ml-2">{ele.address}</p></td>
-                                                <td className='d-flex flex-row p-4'><b>Price :</b><p class="card-text ml-2">{ele.price}₹</p></td>
+                                            <tr className='p-2'>
+                                                <td className='d-flex flex-row p-2'><b>Recipe name:</b><p class="card-text ml-2">{ele.rname}</p></td>
+                                                <td className='d-flex flex-row p-2'><b>Dishes :</b><p class="card-text ml-2">{ele.address}</p></td>
+                                                <td className='d-flex flex-row p-2'><b>Price :</b><p class="card-text ml-2">{ele.price}₹</p></td>
 
-                                                <td className='d-flex flex-row p-4'><b>Qty: </b><p class="card-text ml-2"></p><div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                <td className='d-flex flex-row p-2'><b>Qty: </b><p class="card-text ml-2"></p><div class="btn-group" role="group" aria-label="Basic outlined example">
                                                     <button type="button" class="btn btn-light" onClick={()=>handleClick1(ele.id)}>-</button>
                                                     <button type="button" class="btn btn-light">{ele.qnty}</button>
                                                     <button type="button" class="btn btn-light" onClick={()=>handleClick2(ele.id)}>+</button>
                                                 </div></td>
-                                                <td className='d-flex flex-row p-4' ><b>Total :</b><p class="card-text text-danger ml-2">{ele.price*ele.qnty}₹</p></td>
+                                                <td className='d-flex flex-row p-2' ><b>Total :</b><p class="card-text text-danger ml-2">{ele.price*ele.qnty}₹</p></td>
 
 
 
@@ -74,7 +75,7 @@ const handledetailOrder=()=>{
                                         </table>
                                         <table className=''>
                                             <tr >
-                                                <td className='d-flex flex-row p-4'><b>Rating :</b><p class="card-text ml-2">{ele.rating}<GradeIcon></GradeIcon></p></td>
+                                                <td className='d-flex flex-row p-4'><b>Rating :</b><p class="card-text ml-2">{ele.rating}<GradeIcon style={{color:"green"}}></GradeIcon></p></td>
                                                 <td className='d-flex flex-row p-4'><b>Delete<DeleteIcon style={{ color: "red" }} onClick={()=>DeleteCartItem(ele.id)}></DeleteIcon></b><p class="card-text ml-2"></p></td>
 
 
