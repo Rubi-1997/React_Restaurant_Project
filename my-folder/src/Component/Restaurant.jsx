@@ -6,10 +6,10 @@ import { NavLink, Navigate } from 'react-router-dom'
 let count = 1
 
 
-const Restaurant = ({ setapp, setFindState,setFindItem ,findItem}) => {
+const Restaurant = ({ setapp, setFindState, setFindItem, findItem }) => {
 
-  
-const [data,setData]=useState([])
+
+  const [data, setData] = useState([])
 
 
 
@@ -17,24 +17,24 @@ const [data,setData]=useState([])
   const handleCart = (e) => {
     console.log(e)
     console.log(Cardsdata)
-   setData(Cardsdata.filter((ele) => ele.id === e))
-    
-    
+    setData(Cardsdata.filter((ele) => ele.id === e))
+
+
     setFindState(e)
-   
-    setapp(findItem.length+1)
-    
+
+    setapp(findItem.length + 1)
+
   }
 
- 
-// console.log(data)
-useEffect(()=>{
-  setFindItem([...findItem,...data])
-},[data])
+
+  // console.log(data)
+  useEffect(() => {
+    setFindItem([...findItem, ...data])
+  }, [data])
 
 
   return (
-    <div className='row d-flex align-items-center container justify-content-center mt-4'>
+    <div className='row d-flex align-items-center justify-content-center mt-4 '>
       {
         Cardsdata.map((ele, key) => {
 
@@ -65,7 +65,7 @@ useEffect(()=>{
                 </div>
 
                 <div className='d-flex align-items-center justify-content-center'>
-                <button className='btn btn-secondary' onClick={() => handleCart(ele.id)} >Add to cart</button> 
+                  <button className='btn btn-secondary' onClick={() => handleCart(ele.id)} >Add to cart</button>
 
                 </div>
               </div>

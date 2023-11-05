@@ -5,3 +5,22 @@ background-image:url("/my-folder/public/Images/view-indian-food-arrangement_23-2
 .home-image{
     height:90vh;
 }
+.Restaurant-head{
+    margin: 5rem;
+}
+.small-font-color{
+    color: rgb(164, 163, 163);
+}
+.bg-menu{
+    background-color: #e6dbd0;
+}
+.head-padding{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+.menu-card-shadow:hover{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+.bg-transparent{
+    background-color:  rgba(21, 19, 19)
+}

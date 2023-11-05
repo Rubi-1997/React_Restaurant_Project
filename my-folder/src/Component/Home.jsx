@@ -22,18 +22,35 @@ const Home = ({setapp}) => {
 
     return (
         <div >
-            <img src="/Images/view-indian-food-arrangement_23-2148747716.jpg" className='w-100 home-image'></img>
-            <h2 className='mt-4 d-flex align-items-center justify-content-center mb-4'>Restaurants</h2>
-            <div className='container'>
+            <div className='test '>
+            <img src="/Images/view-indian-food-arrangement_23-2148747716.jpg" className='w-100 home-image position-relative'></img>
+            <div className='bg-dark position-absolute top-50 start-50' style={{width:"38rem",height:"12rem"}}></div>
+            </div>
+            <div className='d-flex justify-content-center align-items-center flex-column p-4 Restaurant-head'>
+            
+                
+                <h2 className=''>Menu Serve</h2>
+                <div><h5 className='small-font-color'>Prepare by our Chef on daily</h5></div>
+            
+                {/* <h5>Prepare by our Chef on daily</h5> */}
+           
+            </div>
+           
+           
+            
+            <div className=' bg-menu'>
+<div className=' head-padding  container'>
 
-                <div className='row g-4'>
+
+                <div className='row gap-x-2 '>
                     {
                         Cardsdata.map((ele, key) => {
                             console.log(ele)
                             return (
-
-                                <div class="card col-md-6 d-flex flex-column justify-content-between ">
-                                    <img src={ele.imgdata} class="card-img-top" alt="..." style={{ height: "20rem" }} />
+                       
+                                <div class=" col-md-4 d-flex flex-column justify-content-between p-4 ">
+                                    <div className='card menu-card-shadow'>
+                                    <img src={ele.imgdata} class="card-img-top" alt="..." style={{ height: "8rem" }} />
                                     <div class="card-body">
                                         <div className='d-flex justify-content-between'>
                                             <h5 class="card-title">{ele.rname}</h5>
@@ -41,6 +58,7 @@ const Home = ({setapp}) => {
                                             <button className='btn btn-border-none' onClick={e => handleClick(e, key)} key={key}>Menu</button>
                                         </div>
                                       
+                                    </div>
                                     </div>
                                    
                                 </div>
@@ -52,7 +70,7 @@ const Home = ({setapp}) => {
                     }
                 </div>
 
-
+                </div>
             </div>
             
 

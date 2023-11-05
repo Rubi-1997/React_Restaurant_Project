@@ -16,11 +16,11 @@ const Nav = ({ stateapp }) => {
 
             <nav class="navbar navbar-expand-lg navbar-light bg-color">
                 <div class="container-fluid">
-                    <a class="navbar-brand fs-3 text-bold" href="#">Restaurant</a>
+                    <img className='logo-icon' src="/Images/201-2011708_restaurant-symbol-of-cutlery-in-a-circle-restaurant-removebg-preview.png" alt="logo"></img>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="collapse navbar-collapse ml-4" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <Link to="/" class="nav-link active" aria-current="page">Home</Link>
@@ -34,7 +34,7 @@ const Nav = ({ stateapp }) => {
 
 {
     localStorage.getItem('data')?<li class="nav-item">
-    <Link to="/logout" class="nav-link active" aria-current="page">Logout</Link>
+    <Link to="/login" class="nav-link active" aria-current="page">Logout</Link>
 
 </li>:<li class="nav-item">
                                 <Link to="/login" class="nav-link active" aria-current="page">Login</Link>

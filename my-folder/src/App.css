@@ -19,6 +19,9 @@
   }
 }
 
-
+.gap-x-2{
+  column-gap:rem;
+  row-gap: 1rem;
+}
 
 
