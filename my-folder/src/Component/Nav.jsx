@@ -34,7 +34,7 @@ const Nav = ({ stateapp }) => {
 
 {
     localStorage.getItem('data')?<li class="nav-item">
-    <Link to="/login" class="nav-link active" aria-current="page">Logout</Link>
+    <Link to="/logout" class="nav-link active" aria-current="page">Logout</Link>
 
 </li>:<li class="nav-item">
                                 <Link to="/login" class="nav-link active" aria-current="page">Login</Link>

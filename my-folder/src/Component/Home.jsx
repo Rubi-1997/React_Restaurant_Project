@@ -24,7 +24,7 @@ const Home = ({setapp}) => {
         <div >
             <div className='test '>
             <img src="/Images/view-indian-food-arrangement_23-2148747716.jpg" className='w-100 home-image position-relative'></img>
-            <div className='bg-dark position-absolute top-50 start-50' style={{width:"38rem",height:"12rem"}}></div>
+            {/* <div className='bg-dark position-absolute top-50 start-50' style={{width:"38rem",height:"12rem"}}></div> */}
             </div>
             <div className='d-flex justify-content-center align-items-center flex-column p-4 Restaurant-head'>
             
@@ -74,7 +74,7 @@ const Home = ({setapp}) => {
             </div>
             
 
-            <h1>home page</h1></div>
+            </div>
     )
 }
 
