@@ -34,15 +34,15 @@ const Restaurant = ({ setapp, setFindState, setFindItem, findItem }) => {
 
 
   return (
-    <div className='row d-flex align-items-center justify-content-center mt-4 '>
+    <div className='row mt-4 '>
       {
         Cardsdata.map((ele, key) => {
 
           return (
 
-            <div class="card mb-3 cartItem" style={{ "width": "580px" }} key={key}>
-              <div class="row g-0">
-                <div className='my-4'><h5 class="card-title"><b>Restaurant: </b><small class="text-muted">{ele.rname}</small></h5></div>
+            <div class=" mb-3 cartItem" style={{'width':"120rem"}}  key={key}>
+              <div class="row p-4">
+                <div className='my-4'><h5 class="card-title text-center"><b>Restaurant: </b><small class="text-muted">{ele.rname}</small></h5></div>
                 <div class="col-md-4 align-items-center d-flex">
                   <img src={ele.imgdata} class="img-fluid rounded-start" alt="..." />
                 </div>

@@ -25,7 +25,7 @@ console.log(findItem.length)
 
   return (
     <div>
-      <div className='text-center'><h1>Cart Page</h1></div>
+      <div className='text-center'><h1>Cart</h1></div>
       <div className='d-flex justify-content-center align-items-center flex-column ' >
         {
           findItem.map((ele, key) => {
